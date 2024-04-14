@@ -1,0 +1,795 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    
+</head>
+<style>
+    
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #fdfdfd;
+    --text-color: #333;
+    --main-color: #754ef9;
+    --white-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, .2);
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--shadow-color);
+    color: var(--text-color);
+}
+
+/* ++++++++++++++++++ Header Part ++++++++++++++++++ */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 7%;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transition: .5s;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    font-weight: 600;
+    margin-right: auto;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 1.7rem;
+    color: var(--white-color);
+    font-weight: 500;
+    margin-right: 3.5rem;
+}
+
+.header.sticky {
+    background: var(--bg-color);
+    box-shadow: 0 .1rem 1rem var(--shadow-color);
+}
+
+.header.sticky .navbar a {
+    color: var(--text-color);
+}
+
+.header.sticky .navbar a.active {
+    color: var(--main-color);
+}
+
+.navbar a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: .2rem;
+    background: var(--white-color);
+}
+
+.header.sticky .navbar a::before {
+    background: var(--main-color);
+    opacity: .7;
+}
+
+/* ++++++++++++++++++ Home Section ++++++++++++++++++ */
+
+section {
+    min-height: 100vh;
+    padding: 10rem 7% 2rem;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+}
+
+.home .home-content {
+    max-width: 44rem;
+}
+
+.home-content h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: .3;
+}
+
+.home-content h1 {
+    font-size: 5.6rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+}
+
+.home-content p {
+    font-size: 1.6rem;
+    text-align: justify;
+}
+
+.home-content .social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 2.5rem 1.5rem 3rem 0;
+    transition: .5s ease;
+}
+
+.home-content .social-media a:hover {
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background: var(--main-color);
+    border-radius: .6rem;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    font-size: 1.6rem;
+    color: var(--white-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.home-img img {
+    position: absolute;
+    top: 24%;
+    bottom: 0;
+    right: 9%;
+    pointer-events: none;
+    border-radius: 8px;
+    max-width: 480px;
+    max-height: 100vh;
+}
+
+/* ++++++++++++++++++ Used in All Section Except Home Section ++++++++++++++++++ */
+
+.container {
+    padding: 36px 6%;
+}
+
+/* ++++++++++++++++++ About Section ++++++++++++++++++ */
+
+#about {
+    padding: 80px 0;
+    color: #ababab;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-img {
+    flex-basis: 35%;
+}
+
+.about-img>img {
+    width: 100%;
+    height: 600px;
+    border-radius: 8px;
+}
+
+.about-me {
+    flex-basis: 60%;
+}
+
+.about-me>p {
+    font-size: 12px;
+    text-align: justify;
+    font-weight: 400;
+    color: #000000;
+}
+
+.sub-tittle {
+    font-size: 48px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.tab-tittles {
+    display: flex;
+    margin: 20px 0 40px 0;
+}
+
+.tab-links {
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-links::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #bb49db;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+
+.tab-links.active-link::after {
+    width: 50%;
+}
+
+.tab-contents ul li {
+    list-style: none;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.tab-contents ul li span {
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.tab-contents {
+    display: none;
+}
+
+.tab-contents.active-tab {
+    display: block;
+}
+
+/* ++++++++++++++++++ Service Section ++++++++++++++++++ */
+
+#services {
+    padding: 60px 0;
+    color: #ababab;
+}
+
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 40px;
+}
+
+.services-list div {
+    background: #262626;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+
+.services-list div>i {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.services-list div h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.services-list div a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.services-list div:hover {
+    background: #ff004f;
+    transform: translateY(-10px);
+}
+
+/* ++++++++++++++++++ Portfolio Section ++++++++++++++++++ */
+
+#portfolio {
+    padding: 60px 0;
+    color: #ababab;
+}
+
+.work-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.work {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.work img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.work:hover img {
+    transform: scale(1.1);
+}
+
+.layer {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 4px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+
+.layer h3 {
+    font-size: 16px;
+    color: #fdfdfd;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.layer p {
+    color: #fdfdfd;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 4px 0 4px;
+}
+
+.layer a {
+    margin-top: 20px;
+    color: #ff004f;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.work:hover .layer {
+    height: 100%;
+}
+
+.btn1 {
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    background-color: #ff0000;
+    border: 1px solid #ff004f;
+    padding: 14px 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.5s;
+}
+
+.btn1:hover {
+    background: #ae9fa4;
+}
+
+/* ++++++++++++++++++ Contact Section ++++++++++++++++++ */
+
+#contact {
+    padding: 60px 0;
+    color: #ababab;
+}
+
+
+.contact-left {
+    flex-basis: 35%;
+}
+
+.contact-right {
+    flex-basis: 60%;
+}
+
+.contact-left p {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.contact-left p i {
+    color: #ff004f;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #ababab;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+
+.social-icons a:hover {
+    color: #ff004f;
+    transform: translateY(-5px);
+}
+
+.btn1.btn2 {
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    background: #ff004f;
+}
+
+.btn1.btn2:hover {
+    background: var(--shadow-color);
+}
+
+.contact-right form {
+    width: 100%;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+form .btn2 {
+    padding: 14px 50px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* ++++++++++++++++++ Footer Section ++++++++++++++++++ */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 6%;
+    background: var(--main-color);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+    color: var(--white-color);
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: var(--shadow-color);
+    border-radius: .8rem;
+    border: .2rem solid var(--main-color);
+    outline: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.footer-iconTop a:hover {
+    background: var(--bg-color);
+    outline-color: var(--white-color);
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: #333;
+}
+
+</style>
+
+<body>
+
+    <!-- Header Part -->
+    <header class="header">
+        <a href="#" class="logo">Portfolio.</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hi, I'm</h3>
+            <h1>SoNu Kumar</h1>
+            <p>
+                I'm a Front-End developer, and i love to create and manage websites <br>
+                and also i love to develop sites.
+            </p>
+
+            <div class="social-media">
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+                <a href="#"><i class='bx bxl-github'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+            </div>
+            <a href="#" download class="btn">Download CV</a>
+        </div>
+
+        <div class="home-img">
+            <img src="S2.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-img">
+                    <img src="SONU.jpg" alt="">
+                </div>
+                <div class="about-me">
+                    <h1 class="sub-tittle">About Me</h1>
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nihil cum dolore nobis odio,
+                        expedita qui ea vitae quae, asperiores suscipit consequatur impedit? Dignissimos, neque
+                        repudiandae non magnam ea accusantium sed, maxime debitis quae nesciunt est? Eos sequi in error?
+                    </p>
+
+                    <div class="tab-tittles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>User-Interface</span><br>Desinging a Web/Android interfaces</li>
+                            <li><span>Web Development</span><br>Building a user friendly and undersandable websites</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>User-Interface</span><br>Intermediate</li>
+                            <li><span>Web Development</span><br>Intermediate</li>
+                            <li><span>App Development</span><br>beginner</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>Under Graduate</span>
+                                <br>2022- 2025
+                                <br>M.M (Deemed to be University)
+                                <br>Pursuing BCA 2<sup>nd</sup> Year
+                            </li>
+                            <li><span>Intermediate of Science (10 + 2)</span>
+                                <br>2020- 2022
+                                <br>N.G.Y HIGH SCHOOL VALIMIKI NAGAR
+                                <br>Percentage : 65.4%
+                            </li>
+                            <li><span>Matriculation</span>
+                                <br>2018- 2020
+                                <br>D.U.V ONKAPURI, Bihar
+                                <br>Percentage : 65.8%
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h1 class="sub-tittle">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class='bx bx-code-alt'></i>
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda aperiam ut possimus aliquam
+                        laudantium nisi vero libero incidunt atque corrupti.</p>
+                    <a href="#">Learn more..</a>
+                </div>
+                <div>
+                    <i class='bx bx-crop'></i>
+                    <h2>User-Interface Desinging</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda aperiam ut possimus aliquam
+                        laudantium nisi vero libero incidunt atque corrupti.</p>
+                    <a href="#">Learn more..</a>
+                </div>
+                <div>
+                    <i class='bx bxl-android'></i>
+                    <h2>App Development</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda aperiam ut possimus aliquam
+                        laudantium nisi vero libero incidunt atque corrupti.</p>
+                    <a href="#">Learn more..</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!------- Portfolio Section ------->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h1 class="sub-tittle">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="socialmdeida.jpg" alt="">
+                    <div class="layer">
+                        <h3>Social Media App</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita eius sunt rerum
+                            nihil iusto asperiores! Ducimus dolores eaque illo.</p>
+                        <a href="#"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="music.jpg" alt="">
+                    <div class="layer">
+                        <h3>Music App</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita eius sunt rerum
+                            nihil iusto asperiores! Ducimus dolores eaque illo.</p>
+                        <a href="#"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+               
+            </div>
+            <a href="#" class="btn1">See more</a>
+        </div>
+    </section>
+
+    <!-- -----Contact Section----- -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-tittle">Contact Me</h1>
+                    <p><i class='bx bxs-envelope'></i>contact@example.com</p>
+                    <p><i class='bx bxs-phone-call'></i></i>07462879206</p>
+                    <div class="social-icons">
+                        <a href="#"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#"><i class='bx bxl-github'></i></a>
+                        <a href="#"><i class='bx bxl-twitter'></i></a>
+                        <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                    </div>
+                    <a href="#" download class="btn1 btn2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form action="#">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 | All Rights Reserved.</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+
+    <!-- Scripting -->
+    <script>
+        
+/*========== About scroll sections ==========*/
+let tablinks = document.getElementsByClassName("tab-links");
+let tabcontents = document.getElementsByClassName("tab-contents");
+
+function opentab(tabname) {
+    for (tablink of tablinks) {
+        tablink.classList.remove("active-link");
+    }
+    for (tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab");
+    }
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab")
+}
+
+
+/*========== scroll sections active link ==========*/
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
+
+window.onscroll = () => {
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if (top >= offset && top < offset + height) {
+            navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+            });
+        };
+    });
+
+    /*========== sticky navbar ==========*/
+    let header = document.querySelector('.header');
+
+    header.classList.toggle('sticky', window.scrollY > 100);
+}
+
+    </script>
+</body>
+
+</html>
