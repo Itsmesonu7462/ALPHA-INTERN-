@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,95 +9,113 @@
 
 </head>
 <style>
-    body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
 
-.todo-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+  .todo-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 
-h1 {
-  text-align: center;
-}
+  .task-add {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(227, 224, 224);
+    padding-left: 16px;
+    margin-bottom: 25px;
+  }
 
-input[type="text"] {
-  width: 70%;
-  padding: 10px;
-  margin-bottom: 10px;
-}
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 16px;
+  }
 
-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
+  button {
+    padding: 10px 20px;
+    background: rgb(199, 44, 44);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
 
-button:hover {
-  background-color: #45a049;
-}
+  button:hover {
+    background-color: #45a049;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
-li {
-  margin-bottom: 10px;
-}
+  li {
+    margin-bottom: 10px;
+  }
 
-.delete-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 32px;
+    cursor: pointer;
+  }
 
-.delete-btn:hover {
-  background-color: #d32f2f;
-}
-
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
 </style>
+
 <body>
   <div class="todo-container">
     <h1>To-Do List</h1>
-    <input type="text" id="taskInput" placeholder="Add a new task">
-    <button onclick="addTask()">Add Task</button>
+    <div class="task-add">
+      <input type="text" id="taskInput" placeholder="Add a new task">
+      <button onclick="addTask()">Add Task</button>
+    </div>
     <ul id="taskList">
-    
+
     </ul>
   </div>
 
   <script>
     function addTask() {
-  var inputValue = document.getElementById("taskInput").value;
-  if (inputValue === '') {
-    alert("You must write something!");
-    return;
-  }
-  var li = document.createElement("li");
-  li.textContent = inputValue;
-  document.getElementById("taskList").appendChild(li);
-  document.getElementById("taskInput").value = "";
 
-  var deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete";
-  deleteButton.classList.add("delete-btn");
-  deleteButton.onclick = function() {
-    li.remove();
-  };
-  li.appendChild(deleteButton);
-}
+      let inputValue = document.getElementById("taskInput").value;
+      if (inputValue === '') {
+        alert("You must write something!");
+        return;
+      }
+
+      let li = document.createElement("li");
+      li.textContent = inputValue;
+      document.getElementById("taskList").appendChild(li);
+      document.getElementById("taskInput").value = "";
+
+      let deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete";
+      deleteButton.classList.add("delete-btn");
+      deleteButton.onclick = function () {
+        li.remove();
+      };
+
+      li.appendChild(deleteButton);
+
+
+    }
 
   </script>
 </body>
+
 </html>
